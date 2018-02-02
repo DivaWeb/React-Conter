@@ -14,20 +14,39 @@
 
   <script type="text/babel">
      class George extends React.Component{
+
+       constructor(props){
+         super(props);
+         this.state = {
+           saying: "Success in not final, failure is not fatal: it is the courage to continue that counts - Winston Churchill"
+         }
+       }
      render(){
      return(
 
        <div>
 
            <h1>By George I think I got it</h1>
+           <h2>{this.props.phrase}</h2>
+           <p>{this.props.label}</p>
+           <p>{this.state.saying}</p>
+
 
        </div>
      );
      }
      }
 
+     const test={
+        phrase: "Don't play leap frog with an unicorn"
+     }
+
+     George.defaultProps={
+       label: "My brain seems to be still working"
+     }
+
      ReactDOM.render(
-       <George />, document.getElementById("app")
+       <George phrase = {test.phrase}/ >, document.getElementById("app")
      );
 
      </script>
